@@ -1,0 +1,18 @@
+nombre: variable de entorno condicional
+
+en: flujo de trabajo_dispatch
+
+entorno:
+  DAY_OF_WEEK: lunes
+
+trabajos:
+  saludo_trabajo:
+    se ejecuta en: ubuntu-latest
+    entorno:
+      Saludo: Hola
+    pasos:
+      - nombre: "Di Hola Mona, es lunes"
+        si: ${{ env.DAY_OF_WEEK == 'lunes' }}
+        run: echo "$Saludo $First_Name. ¡Hoy es $DAY_OF_WEEK!"
+        entorno:
+          Nombre: Mona
